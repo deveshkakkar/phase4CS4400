@@ -42,7 +42,12 @@ function Navigation() {
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/HireWorker">
-                    HireWorker
+                    Hire Worker
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/ReplaceManager">
+                    Replace Manager
                   </NavLink>
                 </li>
               </li>

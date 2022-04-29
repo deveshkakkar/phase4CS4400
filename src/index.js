@@ -16,7 +16,8 @@ import {
   StopCustomer,
   CreateEmployee,
   CreateCustomer,
-  HireWorker
+  HireWorker,
+  ReplaceManager
 } from "./components";
 
 
@@ -31,7 +32,7 @@ ReactDOM.render(
       <Route path="/createEmployeeRole" element={<CreateEmployee />} />    
       <Route path="/createCustomerRole" element={<CreateCustomer />} />
       <Route path="/HireWorker" element={<HireWorker />} />
-
+      <Route path="/ReplaceManager" element={<ReplaceManager />} />
       <Route path="/stopCustomerRole" element={<StopCustomer />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/blog" element={<Blog />}>
