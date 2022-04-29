@@ -10,7 +10,8 @@ function Home() {
     })
     }
   return (
-    <button class="m-3" onClick={LikePost}>Pay All Employee</button>
+    <button class="m-3" onClick={LikePost}>
+      Pay All Employee</button>
   );
 }
 

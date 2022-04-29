@@ -12,18 +12,38 @@ app.get("/api/get", (req,res)=>{
     db.query("call pay_employees()", (err,result)=>{
         if(err) {
         console.log(err)
-        } 
+        }
+        console.log(result)
     res.send(result)
     });   });
+
+app.get("/api/employees", (req,res)=>{
+    db.query("select perID from employee", (err,result)=>{
+        if (err) {
+            console.log(err)
+        } 
+        res.send(result)
+    });   
+});
+
+
+app.get("/api/customers", (req,res)=>{
+    db.query("select perID from customer", (err,result) => {
+        if (err) {
+            console.log(err)
+        } 
+        res.send(result)
+    });   
+});
 
 
 app.post('/api/create', (req,res)=> {
 
-    const corpID = req.body.corpID;
+    const corpID = req.body.corpId;
     const name = req.body.name;
     const shortName = req.body.shortName;
     const resAssets = req.body.resAssets;
-    
+    console.log(req.body.corpId);
     db.query("call create_corporation(?, ?, ?, ?)",[corpID, name, shortName, resAssets], (err,result)=>{
         if(err) {
         console.log(err)

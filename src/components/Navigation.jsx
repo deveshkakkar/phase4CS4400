@@ -7,7 +7,7 @@ function Navigation() {
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <div className="container">
           <NavLink className="navbar-brand" to="/">
-            Phase 4 
+            Phase 4
           </NavLink>
           <div>
             <ul className="navbar-nav ml-auto">
@@ -20,6 +20,31 @@ function Navigation() {
                 <NavLink className="nav-link" to="/about">
                   Create a Corporation
                 </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/stopEmployeeRole">
+                  Stop Employee Role
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/stopCustomerRole">
+                  Stop Customer Role
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/createEmployeeRole">
+                  Create Employee Role
+                </NavLink>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/createCustomerRole">
+                    Create Customer Role
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/HireWorker">
+                    HireWorker
+                  </NavLink>
+                </li>
               </li>
             </ul>
           </div>
