@@ -50,6 +50,16 @@ function Navigation() {
                     Replace Manager
                   </NavLink>
                 </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/AddRemoveAccount">
+                    Add or Remove Account Access
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/CreateAccount">
+                    Create Account
+                  </NavLink>
+                </li>
               </li>
             </ul>
           </div>

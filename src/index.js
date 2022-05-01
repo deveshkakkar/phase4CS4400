@@ -17,7 +17,9 @@ import {
   CreateEmployee,
   CreateCustomer,
   HireWorker,
-  ReplaceManager
+  ReplaceManager,
+  AddRemoveAccount,
+  CreateAccount,
 } from "./components";
 
 
@@ -34,6 +36,9 @@ ReactDOM.render(
       <Route path="/HireWorker" element={<HireWorker />} />
       <Route path="/ReplaceManager" element={<ReplaceManager />} />
       <Route path="/stopCustomerRole" element={<StopCustomer />} />
+      <Route path="/AddRemoveAccount" element={<AddRemoveAccount />} />
+      <Route path="/CreateAccount" element={<CreateAccount />} />
+
       <Route path="/contact" element={<Contact />} />
       <Route path="/blog" element={<Blog />}>
         <Route path="" element={<Posts />} />
