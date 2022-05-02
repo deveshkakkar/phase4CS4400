@@ -6,9 +6,8 @@ function ViewStats() {
     return ( 
         <div class="loginbox">
             <h1>View Stats</h1>
-
              <div>
-                <button type="button" class="button"> 
+                <button type="button" class="button" > 
                     <span class="button__text">Display Account Stats</span>
                 </button>
             </div>

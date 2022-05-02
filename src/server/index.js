@@ -23,6 +23,10 @@ app.post("/api/loginUsers", (req,res)=>{
     var listOfUsers = []; 
     var listOfAdmins = []; 
     var isInSystem = false;
+    var adminIsInSystem = false;
+    var bothIsInSystem = false;
+    var managerIsInSystem = false;
+    var customerIsInSystem = false;
     console.log(userID);
     console.log(pw);
     db.query("SELECT perID, pwd FROM person", (err,result)=>{
@@ -57,14 +61,63 @@ app.post("/api/loginUsers", (req,res)=>{
                 }
                 if (adminIsInSystem) {
                     res.send("Admin");
+                
+                // check for botch
+                } else {
+                    db.query("SELECT perID FROM customer INNER JOIN bank ON customer.perID = bank.manager",  (err,result) => {
+                        listOfBoth = result;
+                        if(err) {
+                            console.log(err)
+                        } 
+                        for (let i = 0; i < listOfBoth.length; i++) {
+                            if( userID == listOfBoth[i]['perID']) {
+                                console.log("In both system");
+                                bothIsInSystem = true;
+                                break;
+                            }
+                        }
+                        if (bothIsInSystem) {
+                            res.send("Both");
+                        } else {
+                            db.query("SELECT perID FROM customer",  (err,result) => {
+                                listOfCustomers = result;
+                                if(err) {
+                                    console.log(err)
+                                } 
+                                for (let i = 0; i < listOfCustomers.length; i++) {
+                                    if( userID == listOfCustomers[i]['perID']) {
+                                        console.log("In customer system");
+                                        customerIsInSystem = true;
+                                        break;
+                                    }
+                                }
+                                if (customerIsInSystem) {
+                                    res.send("Customer");
+                                } else {
+                                    db.query("SELECT manager FROM bank",  (err,result) => {
+                                        listOfManagers = result;
+                                        if(err) {
+                                            console.log(err)
+                                        } 
+                                        for (let i = 0; i < listOfManagers.length; i++) {
+                                            if( userID == listOfManagers[i]['manager']) {
+                                                console.log("In manager system");
+                                                managerIsInSystem = true;
+                                                break;
+                                            }
+                                        }
+                                        if (managerIsInSystem) {
+                                            res.send("Manager");
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
                 }
-
-
             });
-
         }
-        });  
-    
+        });     
  });
     
 

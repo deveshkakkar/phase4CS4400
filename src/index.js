@@ -17,7 +17,8 @@ import {
   CustomerNavigation,
   ManagerNavigation,
   ManageUsers,
-  ViewStats
+  ViewStats,
+  ManagerCustomer
 } from "./components";
 
 ReactDOM.render(
@@ -32,6 +33,7 @@ ReactDOM.render(
       <Route path="/managerNavigation" element={<ManagerNavigation/>} />
       <Route path="/manageUsers" element={<ManageUsers/>} />
       <Route path="/viewStats" element={<ViewStats/>} />
+      <Route path="/managerCustomer" element={<ManagerCustomer/>} />
 
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />

@@ -9,6 +9,7 @@ export { default as CustomerNavigation } from "./CustomerNavigation";
 export { default as ManagerNavigation } from "./ManagerNavigation";
 export { default as ManageUsers } from "./ManageUsers";
 export { default as ViewStats } from "./ViewStats";
+export { default as ManagerCustomer } from "./ManagerCustomer";
 
 export { default as Contact } from "./Contact";
 export { default as Blog } from "./blog/Blog";
