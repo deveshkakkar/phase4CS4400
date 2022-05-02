@@ -7,33 +7,43 @@ function ViewStats() {
         <div class="loginbox">
             <h1>View Stats</h1>
              <div>
+             <NavLink className="nav-link" to="/">
                 <button type="button" class="button" > 
                     <span class="button__text">Display Account Stats</span>
                 </button>
+                </NavLink>
             </div>
 
             <div>
+            <NavLink className="nav-link" to="/">
                 <button type="button" class="button"> 
                     <span class="button__text">Display Corporation Stats</span>
                 </button>
+                </NavLink>
             </div>
 
             <div>
+            <NavLink className="nav-link" to="/">
                 <button type="button" class="button"> 
                     <span class="button__text">Display Bank Stats</span>
                 </button>
+                </NavLink>
             </div>
 
             <div>
+            <NavLink className="nav-link" to="/">
                 <button type="button" class="button"> 
                     <span class="button__text">Display Customer Stats</span>
                 </button>
+                </NavLink>
             </div>
 
             <div>
+            <NavLink className="nav-link" to="/">
                 <button type="button" class="button"> 
                     <span class="button__text">Display Employee Stats</span>
                 </button>
+                </NavLink>
             </div>
         </div>
     );
