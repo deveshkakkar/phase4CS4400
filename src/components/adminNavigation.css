@@ -1,0 +1,35 @@
+.loginbox{
+    width: 800px;
+    height: 560px;
+    background: rgb(215, 220, 228);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.loginbox button[type="button"]{
+    border:none;
+    outline:none;
+    height:45px;
+    width: 200px;
+    background: rgb(38,38,38);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;;
+    margin: 17px;
+  }
+
+
+  h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 30px;
+    color: #0a0f0d;
+    font-weight:500;
+}

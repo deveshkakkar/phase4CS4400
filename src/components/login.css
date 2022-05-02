@@ -1,0 +1,46 @@
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+  }
+  .loginbox{
+      width: 800px;
+      height: 500px;
+      background: rgb(212, 215, 215);
+      color: #fff;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%,-50%);
+      box-sizing: border-box;
+  }
+  .loginbox input[type="submit"]{
+    border:none;
+    outline:none;
+    height:40px;
+    width: 150px;
+    background:#120f0f;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 10px;;
+  }
+
+  h1{
+      margin: 0;
+      padding: 0 0 20px;
+      text-align: center;
+      font-size: 30px;
+      color: #0a0f0d;
+      font-weight:bold;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  

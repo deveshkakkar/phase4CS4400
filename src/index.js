@@ -12,6 +12,12 @@ import {
   Blog,
   Posts,
   Post,
+  Login,
+  AdminNavigation,
+  CustomerNavigation,
+  ManagerNavigation,
+  ManageUsers,
+  ViewStats
 } from "./components";
 
 ReactDOM.render(
@@ -19,6 +25,14 @@ ReactDOM.render(
     <Navigation />
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login/>} />
+
+      <Route path="/adminNavigation" element={<AdminNavigation/>} />
+      <Route path="/customerNavigation" element={<CustomerNavigation/>} />
+      <Route path="/managerNavigation" element={<ManagerNavigation/>} />
+      <Route path="/manageUsers" element={<ManageUsers/>} />
+      <Route path="/viewStats" element={<ViewStats/>} />
+
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/blog" element={<Blog />}>
