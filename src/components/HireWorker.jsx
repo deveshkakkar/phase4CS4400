@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function HireWorker() {
   const [perID, setPerID] = useState("");
+  const [bankID, setBankID] = useState("");
   //let list = async () => Axios.get(`http://localhost:3002/api/employees`).then((response) => response.data.map(element => {return  <option>{element.perID}</option>}))
   //props.g = 12;
   useEffect(() => {
@@ -15,7 +16,15 @@ function HireWorker() {
             return <option>{element.perID}</option>;
           })
         );
+        const result2 = await Axios.get(`http://localhost:3002/api/banks`)
+        .then((response) => response.data)
+        .then((data) =>
+          data.map((element) => {
+            return <option>{element.bankID}</option>;
+          })
+        );
       setPerID(result);
+      setBankID(result2)
     };
     get();
   }, []);
@@ -28,7 +37,7 @@ function HireWorker() {
       <label>
         Bank:
         <select class="m-3" id="banks">
-          {perID}
+          {bankID}
         </select>
       </label>
       <label>
@@ -37,11 +46,16 @@ function HireWorker() {
           {perID}
         </select>
       </label>
+      <label class="p-2">
+      Salary:
+      <input class="m-1" id="bday" type="text" name="corpId" />
+    </label>
       <button
         type="button"
         class="m-3"
         onClick={() => {
-          selectedValue = document.getElementById("employees").value;
+          const perID = document.getElementById("employees").value;
+          const bankID = document.getElementById("employees").value;
         }}
       >
         Hire Worker

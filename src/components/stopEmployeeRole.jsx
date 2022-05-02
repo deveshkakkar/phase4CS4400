@@ -33,6 +33,7 @@ function StopEmployeeRole() {
         class="m-3"
         onClick={() => {
           selectedValue = document.getElementById("employees").value;
+          Axios.post('http://localhost:3002/api/stop_employee_role', {perID: selectedValue})
         }}
       >
         {" "}

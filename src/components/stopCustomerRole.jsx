@@ -30,6 +30,7 @@ function StopCustomerRole() {
         class="m-3"
         onClick={() => {
           selectedValue = document.getElementById("customers").value;
+          Axios.post('http://localhost:3002/api/stop_customer_role', {perID: selectedValue})
         }}
       >
         Stop Customer Role
