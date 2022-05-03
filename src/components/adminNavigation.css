@@ -1,6 +1,6 @@
 .loginbox{
     width: 800px;
-    height: 560px;
+    height: 650px;
     background: rgb(215, 220, 228);
     color: #fff;
     top: 50%;
@@ -10,6 +10,7 @@
     box-sizing: border-box;
     text-align: center;
 }
+
 
 .loginbox button[type="button"]{
     border:none;

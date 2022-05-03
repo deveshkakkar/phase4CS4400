@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import './viewStats.css';
+import { NavLink } from "react-router-dom";
 
 function ViewStats() {
     return ( 

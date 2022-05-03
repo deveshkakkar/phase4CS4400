@@ -32,11 +32,11 @@ import {
 
 ReactDOM.render(
   <Router>
-    <Navigation />
+    {/* <Navigation /> */}
     <div id = "lol"/>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login/>} />
+      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/" element={<Login/>} />
 
       <Route path="/adminNavigation" element={<AdminNavigation/>} />
       <Route path="/customerNavigation" element={<CustomerNavigation/>} />
