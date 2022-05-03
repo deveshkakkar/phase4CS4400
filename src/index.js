@@ -18,12 +18,22 @@ import {
   ManagerNavigation,
   ManageUsers,
   ViewStats,
-  ManagerCustomer
+  ManagerCustomer,
+  StopEmployee,
+  StopCustomer,
+  CreateEmployee,
+  CreateCustomer,
+  HireWorker,
+  ReplaceManager,
+  AddRemoveAccount,
+  CreateAccount,
 } from "./components";
+
 
 ReactDOM.render(
   <Router>
     <Navigation />
+    <div id = "lol"/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login/>} />
@@ -36,13 +46,22 @@ ReactDOM.render(
       <Route path="/managerCustomer" element={<ManagerCustomer/>} />
 
       <Route path="/about" element={<About />} />
+      <Route path="/stopEmployeeRole" element={<StopEmployee />} />      
+      <Route path="/createEmployeeRole" element={<CreateEmployee />} />    
+      <Route path="/createCustomerRole" element={<CreateCustomer />} />
+      <Route path="/HireWorker" element={<HireWorker />} />
+      <Route path="/ReplaceManager" element={<ReplaceManager />} />
+      <Route path="/stopCustomerRole" element={<StopCustomer />} />
+      <Route path="/AddRemoveAccount" element={<AddRemoveAccount />} />
+      <Route path="/CreateAccount" element={<CreateAccount />} />
+
       <Route path="/contact" element={<Contact />} />
       <Route path="/blog" element={<Blog />}>
         <Route path="" element={<Posts />} />
         <Route path=":postSlug" element={<Post />} />
       </Route>
     </Routes>
-    <Footer />
+    <Footer/>
   </Router>,
 
   document.getElementById("root")
