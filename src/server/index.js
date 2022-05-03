@@ -75,9 +75,6 @@ app.get("/api/getAccStat", (req,res)=>{
     res.send(result)
     });   });
 
-app.get("/api/employees", (req,res)=>{
-    db.query("select perID from employee", (err,result)=>{
-        if (err) {
 
 app.post("/api/loginUsers", (req,res)=>{
     console.log(req.body);
