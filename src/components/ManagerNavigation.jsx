@@ -9,7 +9,7 @@ function ManagerNavigation() {
             <h1>Manager Menu</h1>
 
              <div>
-             <NavLink className="nav-link" to="/">
+             <NavLink className="nav-link" to="/MVP">
                 <button type="button" class="button"> 
                     <span class="button__text">Pay Employee</span>
                 </button>
@@ -17,7 +17,7 @@ function ManagerNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/HireWorker">
                 <button type="button" class="button"> 
                     <span class="button__text">Hire Worker</span>
                 </button>

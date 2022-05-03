@@ -17,13 +17,13 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">    
+            <NavLink className="nav-link" to="/MVP">    
                 <button type="button" class="button"> 
                     <span class="button__text">Create Corporation</span>
                 </button>
                 </NavLink>
 
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/Rishi">
                 <button type="button" class="button"> 
                     <span class="button__text">Create Fee</span>
                 </button>
@@ -31,13 +31,13 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/manageUsers">
                 <button type="button" class="button"> 
                     <span class="button__text">Manage Users</span>
                 </button>
                 </NavLink>
 
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/Rishi">
                 <button type="button" class="button"> 
                     <span class="button__text">Manage Overdraft</span>
                 </button>
@@ -45,13 +45,13 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/"> 
+            <NavLink className="nav-link" to="/HireWorker"> 
                 <button type="button" class="button"> 
                     <span class="button__text">Hire Worker</span>
                 </button>
                 </NavLink>
 
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/MVP">
                 <button type="button" class="button"> 
                     <span class="button__text">Pay Employees</span>
                 </button>
@@ -59,13 +59,13 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/ReplaceManager">
                 <button type="button" class="button"> 
                     <span class="button__text">Replace Manager</span>
                 </button>
                 </NavLink>
 
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/Rishi">
                 <button type="button" class="button"> 
                     <span class="button__text">Manage Accounts</span>
                 </button>
@@ -73,7 +73,7 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/Rishi">
                 <button type="button" class="button"> 
                     <span class="button__text">Create Bank</span>
                 </button>

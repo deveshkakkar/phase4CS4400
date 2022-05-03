@@ -8,7 +8,7 @@ function ManageUsers() {
             <h1>Manage Users</h1>
 
              <div>
-             <NavLink className="nav-link" to="/">
+             <NavLink className="nav-link" to="/createEmployeeRole">
                 <button type="button" class="button"> 
                     <span class="button__text">Create Employee Role</span>
                 </button>
@@ -16,7 +16,7 @@ function ManageUsers() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/createCustomerRole">
                 <button type="button" class="button"> 
                     <span class="button__text">Create Customer Role</span>
                 </button>
@@ -24,7 +24,7 @@ function ManageUsers() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/stopEmployeeRole">
                 <button type="button" class="button"> 
                     <span class="button__text">Stop Employee Role</span>
                 </button>
@@ -32,7 +32,7 @@ function ManageUsers() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/stopCustomerRole">
                 <button type="button" class="button"> 
                     <span class="button__text">Stop Customer Role</span>
                 </button>

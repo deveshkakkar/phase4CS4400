@@ -9,7 +9,7 @@ function CustomerNavigation() {
             <h1>Customer Menu</h1>
 
              <div>
-             <NavLink className="nav-link" to="/">
+             <NavLink className="nav-link" to="/Rishi">
                 <button type="button" class="button"> 
                     <span class="button__text">Manage Accounts</span>
                 </button>
@@ -17,7 +17,7 @@ function CustomerNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/Rishi">
                 <button type="button" class="button"> 
                     <span class="button__text">Deposit / Withdrawl</span>
                 </button>
@@ -25,7 +25,7 @@ function CustomerNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/Rishi">
                 <button type="button" class="button"> 
                     <span class="button__text">Manage Overdraft</span>
                 </button>
@@ -33,7 +33,7 @@ function CustomerNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/Rishi">
                 <button type="button" class="button"> 
                     <span class="button__text">Make Transfer</span>
                 </button>
