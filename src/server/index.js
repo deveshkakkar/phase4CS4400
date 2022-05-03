@@ -26,6 +26,59 @@ app.get("/api/banks", (req, res) => {
   });
 
 
+app.get("/api/getCorpStat", (req,res)=>{
+    db.query("select * from display_corporation_stats", (err,result)=>{
+        if(err) {
+        console.log(err)
+        }
+        console.log(result)
+    res.send(result)
+    });   });
+
+
+
+app.get("/api/getBankStat", (req,res)=>{
+    db.query("select * from display_bank_stats", (err,result)=>{
+        if(err) {
+        console.log(err)
+        }
+        console.log(result)
+    res.send(result)
+    });   });
+
+app.get("/api/getCustStat", (req,res)=>{
+    db.query("select * from display_customer_stats", (err,result)=>{
+        if(err) {
+        console.log(err)
+        }
+        console.log(result)
+    res.send(result)
+    });   });
+
+
+
+app.get("/api/getEmpStat", (req,res)=>{
+    db.query("select * from display_employee_stats", (err,result)=>{
+        if(err) {
+        console.log(err)
+        }
+        console.log(result)
+    res.send(result)
+    });   });
+
+app.get("/api/getAccStat", (req,res)=>{
+    db.query("select * from display_account_stats", (err,result)=>{
+        if(err) {
+        console.log(err)
+        }
+        console.log(result)
+    res.send(result)
+    });   });
+
+app.get("/api/employees", (req,res)=>{
+    db.query("select perID from employee", (err,result)=>{
+        if (err) {
+
 app.post("/api/loginUsers", (req,res)=>{
     console.log(req.body);
     const userID = req.body.userID;

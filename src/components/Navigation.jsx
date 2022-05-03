@@ -31,6 +31,31 @@ function Navigation() {
                   Stop Customer Role
                 </NavLink>
               </li>
+              <li>
+                <NavLink className="nav-link" to="/displayCorpStat">
+                  Display Corp Stat
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="nav-link" to="/displaybankstat">
+                  Display Bank Stat
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="nav-link" to="/displayaccstat">
+                  Display Account Stat
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="nav-link" to="/displayempstat">
+                  Display Employee Stat
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="nav-link" to="/displaycuststat">
+                  Display Customer Stat
+                </NavLink>
+              </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/createEmployeeRole">
                   Create Employee Role
