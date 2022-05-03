@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function AddRemoveAccount() {
   const [perID, setPerID] = useState("");
+  const [data, setData] = useState("");
   //let list = async () => Axios.get(`http://localhost:3002/api/employees`).then((response) => response.data.map(element => {return  <option>{element.perID}</option>}))
   //props.g = 12;
   useEffect(() => {
@@ -20,6 +21,24 @@ function AddRemoveAccount() {
     get();
   }, []);
   console.log("poopp");
+  const LikePost = () => {
+    Axios.get(`http://localhost:3002/api/AccountsOwned`, {text}).then((response)=>{ console.log(response.data)
+    return response.data
+    }).then((data)=>{setData(data)})
+}
+const DisplayData=data.map(
+  (data)=>{
+      return(
+          <tr>
+              <td>{data.bank_identifier}</td>
+              <td>{data.name_of_corporation}</td>
+              <td>{data.name_of_bank}</td>
+          </tr>
+      )
+  }
+)
+  var select = document.getElementById('banks');
+  var text = select.options[select.selectedIndex].text;
 
   let navigate = useNavigate();
   let selectedValue;
