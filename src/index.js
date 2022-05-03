@@ -12,6 +12,13 @@ import {
   Blog,
   Posts,
   Post,
+  Login,
+  AdminNavigation,
+  CustomerNavigation,
+  ManagerNavigation,
+  ManageUsers,
+  ViewStats,
+  ManagerCustomer,
   StopEmployee,
   StopCustomer,
   CreateEmployee,
@@ -30,10 +37,19 @@ import {
 
 ReactDOM.render(
   <Router>
-    <Navigation />
+    {/* <Navigation /> */}
     <div id = "lol"/>
     <Routes>
-      <Route path="/" element={<Home />} />
+      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/" element={<Login/>} />
+
+      <Route path="/adminNavigation" element={<AdminNavigation/>} />
+      <Route path="/customerNavigation" element={<CustomerNavigation/>} />
+      <Route path="/managerNavigation" element={<ManagerNavigation/>} />
+      <Route path="/manageUsers" element={<ManageUsers/>} />
+      <Route path="/viewStats" element={<ViewStats/>} />
+      <Route path="/managerCustomer" element={<ManagerCustomer/>} />
+
       <Route path="/about" element={<About />} />
       <Route path="/stopEmployeeRole" element={<StopEmployee />} />      
       <Route path="/createEmployeeRole" element={<CreateEmployee />} />    
