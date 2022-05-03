@@ -16,7 +16,6 @@ app.get("/api/get", (req, res) => {
     res.send(result);
   });
 });
-
 app.get("/api/banks", (req, res) => {
     db.query("select bankID from bank", (err, result) => {
       if (err) {
@@ -26,6 +25,7 @@ app.get("/api/banks", (req, res) => {
     });
   });
 
+
 app.get("/api/employees", (req, res) => {
   db.query("select perID from employee", (err, result) => {
     if (err) {
@@ -34,6 +34,18 @@ app.get("/api/employees", (req, res) => {
     res.send(result);
   });
 });
+
+app.get("/api/workfor", (req, res) => {
+    const query = "select distinct employee.perID from workfor right outer join employee on workfor.perID = employee.perID where bankID is null or " + req.query.args;
+    console.log(query)
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(result);
+      res.send(result);
+    });
+  });
 
 app.get("/api/customers", (req, res) => {
   db.query("select perID from customer", (err, result) => {
@@ -129,6 +141,40 @@ app.post("/api/stop_customer_role", (req, res) => {
           console.log(err);
         }
         console.log(result);
+      }
+    );
+  });
+
+  app.post("/api/hire_worker", (req, res) => {
+    const perID = req.body.perID;
+    const bankID = req.body.bankID;
+    const salary = req.body.salary;
+    db.query(
+      "call hire_worker(?, ?, ?)",
+      [perID, bankID, salary],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        }
+        console.log(result);
+        res.send(result);
+      }
+    );
+  });
+
+  app.post("/api/replace_manager", (req, res) => {
+    const perID = req.body.perID;
+    const bankID = req.body.bankID;
+    const salary = req.body.salary;
+    db.query(
+      "call replace_manager(?, ?, ?)",
+      [perID, bankID, salary],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        }
+        console.log(result);
+        res.send(result);
       }
     );
   });
