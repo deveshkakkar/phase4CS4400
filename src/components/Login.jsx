@@ -56,13 +56,13 @@ function Login() {
             </div>
         );
     } else if (userView === "Admin") {
-        return (<Navigate to="/adminNavigation" replace={true} />)
+        return (<Navigate to="/adminNavigation" replace={false} />)
     } else if (userView === "Both") {
-        return (<Navigate to="/managerCustomer" replace={true} />)
+        return (<Navigate to="/managerCustomer" replace={false} />)
     } else if (userView === "Manager") {
-        return (<Navigate to="/managerNavigation" replace={true} />)
+        return (<Navigate to="/managerNavigation" replace={false} />)
     } else {
-        return (<Navigate to="/customerNavigation" replace={true} />)
+        return (<Navigate to="/customerNavigation" replace={false} />)
     }
     
 }
