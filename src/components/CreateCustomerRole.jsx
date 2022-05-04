@@ -95,7 +95,7 @@ function CreateCustomerRole() {
       class="m-1"
       type="submit"
       value="Cancel"
-      onClick={() => navigate("/")}
+      onClick={() => navigate("/adminNavigation")}
     />
     {/* </form> */}
   </div>

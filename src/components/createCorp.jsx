@@ -44,7 +44,12 @@ function CreateCorp() {
       </label>
       <br></br>
       <input class="m-1" type="submit" value="Create" onClick={submitPost}/>
-      <input class="m-1" type="submit" value="Cancel" />
+      <input
+      class="m-1"
+      type="submit"
+      value="Cancel"
+      onClick={() => navigate("/adminNavigation")}
+    />
       </form>
     </div>
   );

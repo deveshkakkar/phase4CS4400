@@ -77,9 +77,12 @@ function CreateFee() {
       >
         Submit
       </button>
-      <button class="m-3">
-        Back
-      </button>
+      <input
+      class="m-1"
+      type="submit"
+      value="Cancel"
+      onClick={() => navigate("/adminNavigation")}
+    />
       </form>
     </div>
   );
