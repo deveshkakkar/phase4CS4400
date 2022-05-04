@@ -14,6 +14,7 @@ function CreateCorp() {
       alert(JSON.stringify(response.data))
 
     })
+  }
   return (
     <div class="p-3">
       <form>
@@ -66,5 +67,5 @@ function CreateCorp() {
     </div>
   );
 }
-}
+
 export default CreateCorp;
