@@ -68,7 +68,7 @@ function CreateAccount() {
       >
         Confirm
       </button>
-      <button class="m-3" onClick={() => navigate("/")}>
+      <button class="m-3" onClick={() => navigate("/adminNavigation")}>
         Back
       </button>
     </div>
