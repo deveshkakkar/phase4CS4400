@@ -1,10 +1,12 @@
 import React, { Component, useEffect, useState } from "react";
 import Axios from "axios";
+import {user, role} from "./Login.jsx"
 import { useNavigate } from "react-router-dom";
 
 function AddRemoveAccount() {
   const [perID, setPerID] = useState("");
   const [data, setData] = useState("");
+  const [curr, setCurr] = useState("");
   //let list = async () => Axios.get(`http://localhost:3002/api/employees`).then((response) => response.data.map(element => {return  <option>{element.perID}</option>}))
   //props.g = 12;
   useEffect(() => {
@@ -20,25 +22,25 @@ function AddRemoveAccount() {
     };
     get();
   }, []);
-  console.log("poopp");
-  const LikePost = () => {
-    Axios.get(`http://localhost:3002/api/AccountsOwned`, {text}).then((response)=>{ console.log(response.data)
-    return response.data
-    }).then((data)=>{setData(data)})
-}
-const DisplayData=data.map(
-  (data)=>{
-      return(
-          <tr>
-              <td>{data.bank_identifier}</td>
-              <td>{data.name_of_corporation}</td>
-              <td>{data.name_of_bank}</td>
-          </tr>
-      )
-  }
-)
-  var select = document.getElementById('banks');
-  var text = select.options[select.selectedIndex].text;
+  useEffect(() => {
+    const get = async () => {
+      const arg = '"' + user +'"';
+      const result = await Axios.get(`http://localhost:3002/api/accountsowned`, {
+        params: { args: arg },
+      })
+        .then((response) =>  response.data)
+        .then((data) =>
+          data.map((element) => {
+            return <option>{element.accountID}</option>;
+          })
+        );
+      setData(result);
+    };
+    get();
+  }, [user]);
+  console.log(user);
+  console.log(role);
+
 
   let navigate = useNavigate();
   let selectedValue;
@@ -48,13 +50,15 @@ const DisplayData=data.map(
       <br></br>
       <label>
         Accessible Accounts
-        <select class="m-3" id="banks">
-          {perID}
+        <select class="m-3" id="employees" onChange={(e) => {
+            setCurrBank(e.target.value);
+        }}>
+          {data}
         </select>
       </label>
       <label>
         Customer:
-        <select class="m-3" id="employees">
+        <select class="m-3" id="banks">
           {perID}
         </select>
       </label>

@@ -7,6 +7,12 @@ import ManagerCustomer from "./ManagerCustomer";
 import { set } from "express/lib/application";
 import ManagerNavigation from "./ManagerNavigation";
 import CustomerNavigation from "./CustomerNavigation";
+
+let user;
+let role;
+export {user};
+export {role};
+
 function Login() {
     const [userView, setUserView] = useState(false);
     const [userID,setUserID] = useState("");
@@ -30,6 +36,9 @@ function Login() {
             if (data === 'Customer') {
                 setUserView("Customer");
             }
+            user = userID;
+            role = data;
+
             
             
         })
@@ -54,6 +63,7 @@ function Login() {
             </div>
         );
     } else if (userView === "Admin") {
+        
         return <AdminNavigation/>;
     } else if (userView === "Both") {
         return <ManagerCustomer/>;
@@ -62,6 +72,11 @@ function Login() {
     } else {
         return <CustomerNavigation/>;
     }
+<<<<<<< Updated upstream
+=======
+
+    
+>>>>>>> Stashed changes
 }
 
 export default Login; 

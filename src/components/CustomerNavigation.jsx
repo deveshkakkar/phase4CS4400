@@ -9,7 +9,7 @@ function CustomerNavigation() {
             <h1>Customer Menu</h1>
 
              <div>
-             <NavLink className="nav-link" to="/Rishi">
+             <NavLink className="nav-link" to="/AddRemoveAccount">
                 <button type="button" class="button"> 
                     <span class="button__text">Manage Accounts</span>
                 </button>

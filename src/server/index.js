@@ -201,6 +201,18 @@ app.get("/api/workfor", (req, res) => {
     });
   });
 
+  app.get("/api/accountsowned", (req, res) => {
+    const query = "select accountID from access where perID=" + req.query.args;
+    console.log(query)
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(result);
+      res.send(result);
+    });
+  });
+
 app.get("/api/customers", (req, res) => {
   db.query("select perID from customer", (err, result) => {
     if (err) {
