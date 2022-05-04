@@ -5,7 +5,6 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Navigation,
-  Footer,
   PayEmployee,
   CreateCorp,
   Contact,
@@ -32,6 +31,11 @@ import {
   DisplayAccStat,
   DisplayEmpStat,
   DisplayCustStat,
+  CreateBank,
+  CreateFee,
+  StartStopOverdraft,
+  MakeDepositAndWithdrawal,
+  MakeAccountTransfer
 } from "./components";
 
 
@@ -65,12 +69,16 @@ ReactDOM.render(
       <Route path="/displayempstat" element={<DisplayEmpStat />} />
       <Route path="/displaycuststat" element={<DisplayCustStat />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/CreateBank" element={<CreateBank />} />
+      <Route path="/CreateFee" element={<CreateFee />} />
+      <Route path="/StartStopOverdraft" element={<StartStopOverdraft />} />
+      <Route path="/MakeDepositAndWithdrawal" element={<MakeDepositAndWithdrawal />} />
+      <Route path="/MakeAccountTransfer" element={<MakeAccountTransfer />} />
       <Route path="/blog" element={<Blog />}>
         <Route path="" element={<Posts />} />
         <Route path=":postSlug" element={<Post />} />
       </Route>
     </Routes>
-    <Footer/>
   </Router>,
 
   document.getElementById("root")

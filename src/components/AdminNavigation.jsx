@@ -25,7 +25,7 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link"  to="/Rishi">
+            <NavLink className="nav-link"  to="/CreateFee">
                 <button type="button" class="button"> 
                     <span class="button__text">Create Fee</span>
                 </button>
@@ -41,7 +41,7 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/Rishi">
+            <NavLink className="nav-link" to="/StartStopOverdraft">
                 <button type="button" class="button"> 
                     <span class="button__text">Manage Overdraft</span>
                 </button>
@@ -81,7 +81,7 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/Rishi">
+            <NavLink className="nav-link" to="/CreateBank">
                 <button type="button" class="button"> 
                     <span class="button__text">Create Bank</span>
                 </button>

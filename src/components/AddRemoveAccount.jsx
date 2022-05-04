@@ -51,7 +51,7 @@ function AddRemoveAccount() {
       <label>
         Accessible Accounts
         <select class="m-3" id="employees" onChange={(e) => {
-            setCurrBank(e.target.value);
+            //setCurrBank(e.target.value);
         }}>
           {data}
         </select>

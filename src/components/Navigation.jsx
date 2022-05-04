@@ -22,6 +22,31 @@ function Navigation() {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/CreateBank">
+                  Create a Bank
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/CreateFee">
+                  Create a Fee
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/StartStopOverdraft">
+                  Manage Overdraft
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/MakeDepositAndWithdrawal">
+                  Make Deposit and Withdrawal
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/MakeAccountTransfer">
+                  Make Account Transfer
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/stopEmployeeRole">
                   Stop Employee Role
                 </NavLink>

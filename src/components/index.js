@@ -1,5 +1,4 @@
 export { default as Navigation } from "./Navigation";
-export { default as Footer } from "./Footer";
 export { default as PayEmployee } from "./payEmployee";
 export { default as StopEmployee } from "./stopEmployeeRole";
 export { default as StopCustomer } from "./stopCustomerRole";
@@ -12,7 +11,11 @@ export { default as CreateAccount } from "./CreateAccount";
 export { default as ReplaceManager } from "./ReplaceManager";
 export { default as CreateCorp } from "./createCorp";
 export { default as Login } from "./Login";
-
+export { default as CreateBank } from "./CreateBank";
+export { default as CreateFee } from "./CreateFee";
+export { default as MakeDepositAndWithdrawal } from "./MakeDepositAndWithdrawal";
+export { default as StartStopOverdraft } from "./StartStopOverdraft";
+export { default as MakeAccountTransfer } from "./MakeAccountTransfer";
 export { default as AdminNavigation } from "./AdminNavigation";
 export { default as CustomerNavigation } from "./CustomerNavigation";
 export { default as ManagerNavigation } from "./ManagerNavigation";

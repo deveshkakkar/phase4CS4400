@@ -16,6 +16,14 @@ app.get("/api/get", (req, res) => {
     res.send(result);
   });
 });
+app.get("/api/bank", (req, res) => {
+    db.query("select bankID from bank", (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      res.send(result);
+    });
+  });
 app.get("/api/banks", (req, res) => {
     db.query("select bankID from bank", (err, result) => {
       if (err) {
@@ -299,13 +307,14 @@ app.post("/api/stop_customer_role", (req, res) => {
     const lname = req.body.lname;
     const bday = req.body.bday;
     const street = req.body.street;
-    const city  = req.body.state;
+    const city  = req.body.city;
+    const state  = req.body.state;
     const zip = req.body.zip;
     const dtjoin = req.body.dtjoin;
     const password = req.body.password;
     
     db.query(
-      "call start_employee_role(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [perID, SSN, fname, lname, bday, street, city, state, zip, dtjoin, password],
+      "call start_customer_role(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [perID, SSN, fname, lname, bday, street, city, state, zip, dtjoin, password],
       (err, result) => {
         if (err) {
           console.log(err);
@@ -349,6 +358,150 @@ app.post("/api/stop_customer_role", (req, res) => {
       }
     );
   });
+
+  app.post('/api/createFee', (req, res) => {
+      const bank = req.body.bank;
+      const account = req.body.account;
+      const feeType = req.body.feeType;
+      db.query("call create_fee(?, ?, ?)",[bank, account, feeType], (err,result)=>{
+          if(err) {
+          console.log(err)
+          } 
+          console.log(result);
+          res.send(result)
+      });   });
+
+      app.get("/api/account", (req,res)=>{
+          db.query("select accountID from bank_account", (err,result)=>{
+              if (err) {
+                  console.log(err)
+              } 
+              res.send(result)
+          });   
+      });
+
+      app.get('/api/savingAccounts', (req, res) => {
+          db.query("select accountID from savings", (err,result)=>{
+              if(err) {
+              console.log(err)
+              } 
+              res.send(result)
+          });   });
+
+          app.get('/api/checkingAccounts', (req, res) => {
+              db.query("select accountID from checking", (err,result)=>{
+                  if(err) {
+                  console.log(err)
+                  } 
+                  res.send(result)
+              });   });
+
+    app.post('/api/startOverdraft', (req, res) => {
+        const bank = req.body.bank;
+        const account = req.body.account;
+        const bank2 = req.body.bank2;
+        const account2 = req.body.account2;
+        const requester = "mmoss7";
+        console.log([requester, bank, account, bank2, account2]);
+        db.query("call start_overdraft(?, ?, ?, ?, ?)",[requester, bank, account, bank2, account2], (err,result)=>{
+            if(err) {
+            console.log(err)
+            } 
+            console.log(result);
+            res.send(result)
+        });   });
+
+    app.post('/api/stopOverdraft', (req, res) => {
+        const bank = req.body.inputBank;
+      const account = req.body.inputAccount;
+      const requester = "mmoss7";
+      console.log([requester, bank, account]);
+        db.query("call stop_overdraft(?, ?, ?)",[requester, bank, account], (err,result)=>{
+            if(err) {
+            console.log(err)
+            } 
+            console.log(result);
+            res.send(result)
+        });   });
+
+      app.post('/api/MakeAccountTransfer', (req, res) => {
+          const bank = req.body.inputBank;
+          const account = req.body.inputAccount;
+          const bank2 = req.body.inputBank2;
+          const account2 = req.body.inputAccount2;
+          const amount = req.body.account;
+          const today = new Date();
+          const day = String(today.getDate()).padStart(2, '0');
+          const month = String(today.getMonth() + 1).padStart(2, '0');
+          const year = today.getFullYear();
+          const date = year + '-' + month + '-' + day;
+          const requester = "mmoss7";
+          db.query("call account_transfer(?, ?, ?, ?, ?, ?, ?)",[requester, amount, bank, account, bank2, account2, date], (err,result)=>{
+              if(err) {
+              console.log(err)
+              } 
+              console.log(result);
+              res.send(result)
+          });   });
+
+    app.post('/api/MakeDeposit', (req, res) => {
+        const bank = req.body.bank;
+        const account = req.body.account;
+        const amount = req.body.amount;
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        const date = year + '-' + month + '-' + day;
+        const requester = "mmoss7";
+        console.log([requester, amount, bank, account, date]);
+        db.query("call account_deposit(?, ?, ?, ?, ?)",[requester, amount, bank, account, date], (err,result)=>{
+            if(err) {
+            console.log(err)
+            } 
+            console.log(result);
+            res.send(result)
+        });   });
+
+    app.post('/api/MakeWithdrawal', (req, res) => {
+        const bank = req.body.bank;
+        const account = req.body.account;
+        const amount = req.body.amount;
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        const date = year + '-' + month + '-' + day;
+        const requester = "mmoss7";
+        db.query("call account_withdrawal(?, ?, ?, ?, ?)",[requester, amount, bank, account, date], (err,result)=>{
+            if(err) {
+            console.log(err)
+            } 
+            console.log(result);
+            res.send(result)
+        });   });
+
+  app.post('/api/createBank', (req,res)=> {
+
+      const bankID = req.body.bankID;
+      const name = req.body.name;
+      const street = req.body.street;
+      const city = req.body.city;
+      const state = req.body.state;
+      const zip = req.body.zip;
+      const resAssets = req.body.resAssets;
+      const corpID = req.body.corpID;
+      const manager = req.body.manager;
+      const bank_employee = req.body.employee;
+      console.log("cat");
+      console.log(corpID);
+      db.query("call create_bank(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",[bankID, name, street, city, state, zip, resAssets, corpID, manager, bank_employee], (err,result)=>{
+          if(err) {
+          console.log(err)
+          } 
+          console.log(result);
+          res.send(result)
+      });   });
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
