@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import Axios from "axios";
 import './login.css';
-import { NavLink } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import AdminNavigation from "./AdminNavigation";
 import ManagerCustomer from "./ManagerCustomer";
 import { set } from "express/lib/application";
@@ -17,7 +19,6 @@ function Login() {
     const [userView, setUserView] = useState(false);
     const [userID,setUserID] = useState("");
     const [pw,setPw] = useState("");
-    const switchToAdminView = () => { return <AdminNavigation/>};
     const UserLogin = () => {
         Axios.post(`http://localhost:3002/api/loginUsers`, {userID: userID, pw: pw}).then((response)=>{
             var data = response['data'];
@@ -63,14 +64,13 @@ function Login() {
             </div>
         );
     } else if (userView === "Admin") {
-        
-        return <AdminNavigation/>;
+        return (<Navigate to="/adminNavigation" replace={false} />)
     } else if (userView === "Both") {
-        return <ManagerCustomer/>;
+        return (<Navigate to="/managerCustomer" replace={false} />)
     } else if (userView === "Manager") {
-        return <ManagerNavigation/>;
+        return (<Navigate to="/managerNavigation" replace={false} />)
     } else {
-        return <CustomerNavigation/>;
+        return (<Navigate to="/customerNavigation" replace={false} />)
     }
 }
 
