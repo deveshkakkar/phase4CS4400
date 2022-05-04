@@ -72,11 +72,6 @@ function Login() {
     } else {
         return <CustomerNavigation/>;
     }
-<<<<<<< Updated upstream
-=======
-
-    
->>>>>>> Stashed changes
 }
 
 export default Login; 
