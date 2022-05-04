@@ -83,6 +83,15 @@ app.get("/api/getAccStat", (req,res)=>{
     res.send(result)
     });   });
 
+    app.get("/api/getAccounts", (req,res)=>{
+      db.query("select bankID, accountID from bank_account", (err,result)=>{
+          if(err) {
+          console.log(err)
+          }
+          console.log(result)
+      res.send(result)
+      });   });
+
 
 app.post("/api/loginUsers", (req,res)=>{
     console.log(req.body);

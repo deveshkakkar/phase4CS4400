@@ -39,10 +39,8 @@ function AddRemoveAccount() {
   }, []);
   useEffect(() => {
     const get = async () => {
-      if(role === "Admin") {
-        const result = await Axios.get(`http://localhost:3002/api/accountsowned`, {
-        params: { args: arg },
-      })
+      if(role === 'Admin') {
+        const result = await Axios.get(`http://localhost:3002/api/getAccounts`)
         .then((response) =>  response.data)
         .then((data) =>
           data.map((element) => {
@@ -66,7 +64,7 @@ function AddRemoveAccount() {
       
     };
     get();
-  }, [user]);
+  }, [user, role]);
 
   const hi = async (bruh) => {
     bruh = bruh.split(",");
@@ -92,16 +90,12 @@ function AddRemoveAccount() {
       .then((response) =>  response.data)
   };
   const bro = async (brob, bro, bro2) => {
-    console.log(brob);
     let arg = '"'+ brob +'", "'+bro+'", "null", "'+ bro2[0] +'", "'+ bro2[1] +'" ,0,0,"2022-05-04",0,0,0,"2022-05-04")';
     const result = await Axios.get(`http://localhost:3002/api/addAccess`, {
       params: { args: arg },
     })
       .then((response) =>  response.data)
   };
-
-  console.log(user);
-  console.log(role);
 
 
   let navigate = useNavigate();
