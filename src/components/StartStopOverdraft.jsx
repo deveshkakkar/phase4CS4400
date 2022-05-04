@@ -2,6 +2,9 @@ import React, { Component, useEffect, useState } from "react";
 import Axios from "axios";
 //import { useNavigate } from "react-router-dom";
 //let navigate = useNavigate();
+import { NavLink } from "react-router-dom";
+import {user, role} from "./Login.jsx"
+
 
 
 function StartStopOverdraft() {
@@ -110,10 +113,16 @@ function StartStopOverdraft() {
           const inputBank2 = document.getElementById("banks2").value;
           const inputAccount2 = document.getElementById("accounts2").value;
           if (checked == 1) {
-            Axios.post('http://localhost:3002/api/startOverdraft', {bank: inputBank, account: inputAccount,
-                                                          bank2: inputBank2, account2: inputAccount2})
+            Axios.post('http://localhost:3002/api/startOverdraft', {user: user, bank: inputBank, account: inputAccount,
+                                                          bank2: inputBank2, account2: inputAccount2}).then((response) => {
+                                                            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
+                                                              alert("it didn't work!")
+                                                            } else {
+                                                              alert("it did work!")
+                                                            }
+                                                          })
           } else {
-            Axios.post('http://localhost:3002/api/stopOverdraft', {inputBank: inputBank, inputAccount: inputAccount}).then((response) => {
+            Axios.post('http://localhost:3002/api/stopOverdraft', {user: user, inputBank: inputBank, inputAccount: inputAccount}).then((response) => {
               if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
                 alert("it didn't work!")
               } else {
@@ -125,9 +134,11 @@ function StartStopOverdraft() {
       >
         Submit
       </button>
-      <button class="m-3">
-        Back
-      </button>
+      <NavLink className="nav-link" to="/" style = {{float: "left"}}>
+                <button type="button" class="button"> 
+                    <span class="button__text">Back</span>
+                </button>
+                </NavLink>
       </form>
     </div>
   );

@@ -1,9 +1,10 @@
 import React, { Component, useEffect, useState } from "react";
 import Axios from "axios";
+import {user, role} from "./Login.jsx"
 //import { MakeDepositAndWithdrawal } from ".";
 //import { useNavigate } from "react-router-dom";
 //let navigate = useNavigate();
-
+import { NavLink } from "react-router-dom";
 
 function MakeDepositAndWithdrawal() {
   const [bankID,setbankID] = useState("");
@@ -72,13 +73,13 @@ function MakeDepositAndWithdrawal() {
     <div class="p-3">
       <form>
       <label>
-        Account Bank 1:
+        Account Bank:
         <select class="m-3" id="banks">
           {bankID}
         </select>
       </label>
       <label>
-        Account ID 1:
+        Account ID:
         <select class="m-3" id="accounts">
           {checkingAccount}
         </select>
@@ -88,18 +89,6 @@ function MakeDepositAndWithdrawal() {
         <input class="m-1" type="text" id="amount" onChange={(e)=> {
                     setAmount(e.target.valueAsNumber)
                 }}/>
-      </label>
-      <label>
-        Account Bank 2:
-        <select class="m-3" id="banks2">
-          {bankID2}
-        </select>
-      </label>
-      <label>
-        Account ID 2:
-        <select class="m-3" id="accounts2">
-          {savingAccount}
-        </select>
       </label>
       <br></br>
       <button
@@ -111,25 +100,27 @@ function MakeDepositAndWithdrawal() {
           const inputBank2 = document.getElementById("banks").value;
           const inputAccount2 = document.getElementById("accounts").value;
           let amount = parseInt(document.getElementById("amount").value);
-          Axios.post('http://localhost:3002/api/MakeDeposit', {bank: inputBank, account: inputAccount, amount: amount,
+          Axios.post('http://localhost:3002/api/MakeDeposit', {user: user, bank: inputBank, account: inputAccount, amount: amount,
                                                           bank2: inputBank2, account2: inputAccount2})
         }}
       >
         Deposit
       </button>
-      <button class="m-3">
-        Back
-      </button>
+      <NavLink className="nav-link" to="/" style = {{float: "left"}}>
+                <button type="button" class="button"> 
+                    <span class="button__text">Back</span>
+                </button>
+                </NavLink>
       </form>
       <form>
       <label>
-        Account Bank 1:
+        Account Bank:
         <select class="m-3" id="banks">
           {bankID}
         </select>
       </label>
       <label>
-        Account ID 1:
+        Account ID:
         <select class="m-3" id="accounts">
           {checkingAccount}
         </select>
@@ -140,18 +131,6 @@ function MakeDepositAndWithdrawal() {
                     setAmount(e.target.valueAsNumber)
                 }}/>
       </label>
-      <label>
-        Account Bank 2:
-        <select class="m-3" id="banks2">
-          {bankID2}
-        </select>
-      </label>
-      <label>
-        Account ID 2:
-        <select class="m-3" id="accounts2">
-          {savingAccount}
-        </select>
-      </label>
       <br></br>
       <button
         type="button"
@@ -161,8 +140,8 @@ function MakeDepositAndWithdrawal() {
           const inputAccount = document.getElementById("accounts").value;
           const inputBank2 = document.getElementById("banks").value;
           const inputAccount2 = document.getElementById("accounts").value;
-          let amount = parseInt(document.getElementById("amount").valueAsNumber);
-          Axios.post('http://localhost:3002/api/MakeWithdrawal', {bank: inputBank, account: inputAccount, amount: amount,
+          let amount = parseInt(document.getElementById("amount").value);
+          Axios.post('http://localhost:3002/api/MakeWithdrawal', {user: user, bank: inputBank, account: inputAccount, amount: amount,
                                                           bank2: inputBank2, account2: inputAccount2}).then((response) => {
             if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
               alert("it didn't work!")
@@ -174,9 +153,11 @@ function MakeDepositAndWithdrawal() {
       >
         Withdrawal
       </button>
-      <button class="m-3">
-        Back
-      </button>
+      <NavLink className="nav-link" to="/" style = {{float: "left"}}>
+                <button type="button" class="button"> 
+                    <span class="button__text">Back</span>
+                </button>
+                </NavLink>
       </form>
     </div>
   );

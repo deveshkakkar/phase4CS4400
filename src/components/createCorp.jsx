@@ -10,7 +10,13 @@ function CreateCorp() {
   const [resAssets,setResAssets] = useState("");
   
   const submitPost = () => {
-    Axios.post('http://localhost:3002/api/create', {corpId: corpID, name: name, shortName:shortName, resAssets:resAssets})
+    Axios.post('http://localhost:3002/api/create', {corpId: corpID, name: name, shortName:shortName, resAssets:resAssets}).then((response) => {
+      if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
+        alert("it didn't work!")
+      } else {
+        alert("it did work!")
+      }
+    })
     }
   return (
     <div class="p-3">
@@ -44,7 +50,22 @@ function CreateCorp() {
       </label>
       <br></br>
       <input class="m-1" type="submit" value="Create" onClick={submitPost}/>
-      <NavLink className="nav-link" to="/adminNavigation" style = {{float: "left"}}>
+      <button
+        type="button"
+        class="m-3"
+        onClick={() => {
+          Axios.post('http://localhost:3002/api/create', {corpId: corpID, name: name, shortName:shortName, resAssets:resAssets}).then((response) => {
+      if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
+        alert("it didn't work!")
+      } else {
+        alert("it did work!")
+      }
+            })
+        }}
+      >
+        Submit
+      </button>
+      <NavLink className="nav-link" to="/" style = {{float: "left"}}>
                 <button type="button" class="button"> 
                     <span class="button__text">Back</span>
                 </button>

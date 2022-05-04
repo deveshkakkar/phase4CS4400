@@ -1,8 +1,9 @@
 import React, { Component, useEffect, useState } from "react";
 import Axios from "axios";
+import {user, role} from "./Login.jsx"
 //import { useNavigate } from "react-router-dom";
 //let navigate = useNavigate();
-
+import { NavLink } from "react-router-dom";
 
 function MakeAccountTransfer() {
   const [bankID,setbankID] = useState("");
@@ -109,8 +110,8 @@ function MakeAccountTransfer() {
           const inputAccount = document.getElementById("accounts").value;
           const inputBank2 = document.getElementById("banks").value;
           const inputAccount2 = document.getElementById("accounts").value;
-          let amount = parseInt(document.getElementById("amount").valueAsNumber);
-          Axios.post('http://localhost:3002/api/MakeAccountTransfer', {bank: inputBank, account: inputAccount, amount: amount,
+          let amount = parseInt(document.getElementById("amount").value);
+          Axios.post('http://localhost:3002/api/MakeAccountTransfer', {user: user, bank: inputBank, account: inputAccount, amount: amount,
                                                           bank2: inputBank2, account2: inputAccount2}).then((response) => {
               if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
                 alert("it didn't work!")
@@ -122,9 +123,11 @@ function MakeAccountTransfer() {
       >
         Submit
       </button>
-      <button class="m-3">
-        Back
-      </button>
+      <NavLink className="nav-link" to="/" style = {{float: "left"}}>
+                <button type="button" class="button"> 
+                    <span class="button__text">Back</span>
+                </button>
+                </NavLink>
       </form>
     </div>
   );

@@ -16,7 +16,7 @@ function CreateBank() {
 
   useEffect(() => {
     const get = async () => {
-      const result = await Axios.get(`http://localhost:3002/api/corporations`)
+      const result = await Axios.get(`http://localhost:3002/api/corporation`)
         .then((response) => response.data)
         .then((data) =>
           data.map((element) => {
@@ -149,7 +149,7 @@ function CreateBank() {
       >
         Submit
       </button>
-      <NavLink className="nav-link" to="/adminNavigation" style = {{float: "left"}}>
+      <NavLink className="nav-link" to="/" style = {{float: "left"}}>
                 <button type="button" class="button"> 
                     <span class="button__text">Back</span>
                 </button>

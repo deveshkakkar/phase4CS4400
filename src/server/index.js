@@ -1,7 +1,6 @@
 const express = require("express");
 const db = require("./db");
 const cors = require("cors");
-
 const app = express();
 const PORT = 3002;
 app.use(cors());
@@ -18,6 +17,14 @@ app.get("/api/get", (req, res) => {
 });
 app.get("/api/bank", (req, res) => {
     db.query("select bankID from bank", (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      res.send(result);
+    });
+  });
+  app.get("/api/corporation", (req, res) => {
+    db.query("select corpID from corporation", (err, result) => {
       if (err) {
         console.log(err);
       }
@@ -314,11 +321,12 @@ app.post("/api/stop_customer_role", (req, res) => {
   });
 
   app.post("/api/start_employee_role", (req, res) => {
-    const perID = req.body.corpId;
+    const perID = req.body.perID;
     const SSN = req.body.SSN;
     const fname = req.body.fname;
     const lname = req.body.lname;
     const bday = req.body.bday;
+    const state = req.body.state;
     const street = req.body.street;
     const city  = req.body.state;
     const zip = req.body.zip;
@@ -443,7 +451,7 @@ app.post("/api/stop_customer_role", (req, res) => {
         const account = req.body.account;
         const bank2 = req.body.bank2;
         const account2 = req.body.account2;
-        const requester = "mmoss7";
+        const requester = req.body.user;
         console.log([requester, bank, account, bank2, account2]);
         db.query("call start_overdraft(?, ?, ?, ?, ?)",[requester, bank, account, bank2, account2], (err,result)=>{
             if(err) {
@@ -456,7 +464,7 @@ app.post("/api/stop_customer_role", (req, res) => {
     app.post('/api/stopOverdraft', (req, res) => {
         const bank = req.body.inputBank;
       const account = req.body.inputAccount;
-      const requester = "mmoss7";
+      const requester = req.body.user;
       console.log([requester, bank, account]);
         db.query("call stop_overdraft(?, ?, ?)",[requester, bank, account], (err,result)=>{
             if(err) {
@@ -467,17 +475,18 @@ app.post("/api/stop_customer_role", (req, res) => {
         });   });
 
       app.post('/api/MakeAccountTransfer', (req, res) => {
-          const bank = req.body.inputBank;
-          const account = req.body.inputAccount;
-          const bank2 = req.body.inputBank2;
-          const account2 = req.body.inputAccount2;
-          const amount = req.body.account;
+          const bank = req.body.bank;
+          const account = req.body.account;
+          const bank2 = req.body.bank2;
+          const account2 = req.body.account2;
+          const amount = req.body.amount;
           const today = new Date();
           const day = String(today.getDate()).padStart(2, '0');
           const month = String(today.getMonth() + 1).padStart(2, '0');
           const year = today.getFullYear();
           const date = year + '-' + month + '-' + day;
-          const requester = "mmoss7";
+          const requester = req.body.user;
+          console.log([requester, amount, bank, account, bank2, account2, date]);
           db.query("call account_transfer(?, ?, ?, ?, ?, ?, ?)",[requester, amount, bank, account, bank2, account2, date], (err,result)=>{
               if(err) {
               console.log(err)
@@ -495,7 +504,7 @@ app.post("/api/stop_customer_role", (req, res) => {
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const year = today.getFullYear();
         const date = year + '-' + month + '-' + day;
-        const requester = "mmoss7";
+        const requester = req.body.user;
         console.log([requester, amount, bank, account, date]);
         db.query("call account_deposit(?, ?, ?, ?, ?)",[requester, amount, bank, account, date], (err,result)=>{
             if(err) {
@@ -514,7 +523,7 @@ app.post("/api/stop_customer_role", (req, res) => {
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const year = today.getFullYear();
         const date = year + '-' + month + '-' + day;
-        const requester = "mmoss7";
+        const requester = req.body.user;
         db.query("call account_withdrawal(?, ?, ?, ?, ?)",[requester, amount, bank, account, date], (err,result)=>{
             if(err) {
             console.log(err)
