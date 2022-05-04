@@ -110,6 +110,7 @@ function AddRemoveAccount() {
   let navigate = useNavigate();
   let selectedPerson;
   let selectedAcc;
+  let selectedBank;
   return (
     <div>
       <label>Existing Accounts: Remove Owners</label>
@@ -118,10 +119,15 @@ function AddRemoveAccount() {
         Accessible Accounts
         <select class="m-3" id="employees" onChange={(e) => {
             console.log(e.target.value);
+            selectedBank = e.target.value.split(",")[0];
+            document.getElementById("hi").innerHTML = "Bank ID: " + selectedBank;
             hi(e.target.value);
         }}>
           {data}
         </select>
+      </label>
+      <label id="hi" class="m-1">
+        {selectedBank}
       </label>
       <label>
         Customer:
