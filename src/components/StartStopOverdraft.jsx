@@ -3,8 +3,7 @@ import Axios from "axios";
 //import { useNavigate } from "react-router-dom";
 //let navigate = useNavigate();
 import { NavLink } from "react-router-dom";
-import {user, role} from "./Login.jsx"
-
+import { user, role } from "./Login.jsx";
 
 function StartStopOverdraft() {
   const [bankID, setbankID] = useState("");
@@ -74,72 +73,78 @@ function StartStopOverdraft() {
   return (
     <div class="p-3">
       <form>
-      <label>
-        Checking Account Bank:
-        <select class="m-3" id="banks">
-          {bankID}
-        </select>
-      </label>
-      <label>
-        Checking Account ID:
-        <select class="m-3" id="accounts">
-          {checkingAccount}
-        </select>
-      </label>
-      <label class="p-2">
-        Check for start, leave unchecked for stop
-        <input class="m-1" type="checkbox" name="checked"  onChange={(e)=> {
-                    checked = checked * -1;
-                }}/>
-      </label>
-      <label>
-        Saving Account Bank:
-        <select class="m-3" id="banks2">
-          {bankID2}
-        </select>
-      </label>
-      <label>
-        Saving Account ID:
-        <select class="m-3" id="accounts2">
-          {savingAccount}
-        </select>
-      </label>
-      <br></br>
-      <button
-        type="button"
-        class="m-3"
-        onClick={() => {
-          const inputBank = document.getElementById("banks").value;
-          const inputAccount = document.getElementById("accounts").value;
-          const inputBank2 = document.getElementById("banks2").value;
-          const inputAccount2 = document.getElementById("accounts2").value;
-          if (checked == 1) {
-            Axios.post('http://localhost:3002/api/startOverdraft', {user: user, bank: inputBank, account: inputAccount,
-                                                          bank2: inputBank2, account2: inputAccount2}).then((response) => {
-                                                            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-                                                              alert("it didn't work!")
-                                                            } else {
-                                                              alert("it did work!")
-                                                            }
-                                                          })
-          } else {
-            Axios.post('http://localhost:3002/api/stopOverdraft', {user: user, inputBank: inputBank, inputAccount: inputAccount}).then((response) => {
-              if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-                alert("it didn't work!")
-              } else {
-                alert("it did work!")
-              }
-            })
-          }
-        }}
-      >
-        Submit
-      </button>
-      <NavLink className="nav-link" to="/" style = {{float: "left"}}>
-                <button type="button" class="button"> 
-                    <span class="button__text">Back</span>
-                </button>
-                </NavLink>
+        <label>
+          Checking Account Bank:
+          <select class="m-3" id="banks">
+            {bankID}
+          </select>
+        </label>
+        <label>
+          Checking Account ID:
+          <select class="m-3" id="accounts">
+            {checkingAccount}
+          </select>
+        </label>
+        <label class="p-2">
+          Check for start, leave unchecked for stop
+          <input
+            class="m-1"
+            type="checkbox"
+            name="checked"
+            onChange={(e) => {
+              checked = checked * -1;
+            }}
+          />
+        </label>
+        <label>
+          Saving Account Bank:
+          <select class="m-3" id="banks2">
+            {bankID2}
+          </select>
+        </label>
+        <label>
+          Saving Account ID:
+          <select class="m-3" id="accounts2">
+            {savingAccount}
+          </select>
+        </label>
+        <br></br>
+        <button
+          type="button"
+          class="m-3"
+          onClick={() => {
+            const inputBank = document.getElementById("banks").value;
+            const inputAccount = document.getElementById("accounts").value;
+            const inputBank2 = document.getElementById("banks2").value;
+            const inputAccount2 = document.getElementById("accounts2").value;
+            if (checked == 1) {
+              Axios.post("http://localhost:3002/api/startOverdraft", {
+                user: user,
+                bank: inputBank,
+                account: inputAccount,
+                bank2: inputBank2,
+                account2: inputAccount2,
+              }).then((response) => {
+                alert(JSON.stringify(response.data));
+              });
+            } else {
+              Axios.post("http://localhost:3002/api/stopOverdraft", {
+                user: user,
+                inputBank: inputBank,
+                inputAccount: inputAccount,
+              }).then((response) => {
+                alert(JSON.stringify(response.data));
+              });
+            }
+          }}
+        >
+          Submit
+        </button>
+        <NavLink className="nav-link" to="/" style={{ float: "left" }}>
+          <button type="button" class="button">
+            <span class="button__text">Back</span>
+          </button>
+        </NavLink>
       </form>
     </div>
   );

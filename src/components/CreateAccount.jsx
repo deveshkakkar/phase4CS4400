@@ -45,7 +45,9 @@ function CreateAccount() {
     const result = await Axios.get(`http://localhost:3002/api/addAccess`, {
       params: { args: arg },
     })
-      .then((response) =>  response.data)
+    .then((response) => {
+      alert(JSON.stringify(response.data))
+  })
   };
 
   let navigate = useNavigate();

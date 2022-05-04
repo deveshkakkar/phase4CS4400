@@ -9,10 +9,12 @@ app.use(express.json());
 app.get("/api/get", (req, res) => {
   db.query("call pay_employees()", (err, result) => {
     if (err) {
+      res.send(err)
       console.log(err);
+    } else {
+      console.log(result);
+      res.send(result);
     }
-    console.log(result);
-    res.send(result);
   });
 });
 app.get("/api/bank", (req, res) => {
