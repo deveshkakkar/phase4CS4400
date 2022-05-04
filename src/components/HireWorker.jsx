@@ -76,11 +76,7 @@ function HireWorker() {
             bankID: bankID,
             salary: salary,
           }).then((response) => {
-            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-              alert("it didn't work!")
-            } else {
-              alert("it did work!")
-            }
+              alert(JSON.stringify(response.data))
           });
         }}
       >

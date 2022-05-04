@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 function AdminNavigation() {
     return ( 
-        <div class="loginbox" style = {{height: "650px"}}>
+        <div class="loginbox" style = {{height: "750px"}}>
             <h1>Admin Menu</h1>
 
             <div>
@@ -81,12 +81,25 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/CreateBank">
+            <NavLink className="nav-link" to="/CreateBank" style = {{float: "left"}}>
                 <button type="button" class="button"> 
                     <span class="button__text">Create Bank</span>
                 </button>
                 </NavLink>
+
+                <NavLink className="nav-link" to="/CreateAccount">
+                <button type="button" class="button"> 
+                    <span class="button__text">Create Account</span>
+                </button>
+                </NavLink>
             </div>
+
+            <NavLink className="nav-link" to="/">
+                <button type="button" class="button"> 
+                    <span class="button__text">Log Out</span>
+                </button>
+                </NavLink>
+
         </div>
     );
 }

@@ -65,12 +65,8 @@ function CreateFee() {
           const inputBank = document.getElementById("banks").value;
           const inputAccount = document.getElementById("accounts").value;
           Axios.post('http://localhost:3002/api/createFee', {bank: inputBank, account: inputAccount, feeType: feeType}).then((response) => {
-            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-              alert("it didn't work!")
-            } else {
-              alert("it did work!")
-            }
-          })
+            alert(JSON.stringify(response.data))
+        })
         }}
       >
         Submit

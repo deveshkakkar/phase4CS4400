@@ -39,10 +39,8 @@ function AddRemoveAccount() {
   }, []);
   useEffect(() => {
     const get = async () => {
-      if(role === "Admin") {
-        const result = await Axios.get(`http://localhost:3002/api/accountsowned`, {
-        params: { args: arg },
-      })
+      if(role === 'Admin') {
+        const result = await Axios.get(`http://localhost:3002/api/getAccounts`)
         .then((response) =>  response.data)
         .then((data) =>
           data.map((element) => {
@@ -66,7 +64,7 @@ function AddRemoveAccount() {
       
     };
     get();
-  }, [user]);
+  }, [user, role]);
 
   const hi = async (bruh) => {
     bruh = bruh.split(",");
@@ -89,19 +87,24 @@ function AddRemoveAccount() {
     const result = await Axios.get(`http://localhost:3002/api/removeAccess`, {
       params: { args: arg },
     })
-      .then((response) =>  response.data)
+    .then((response) => {
+      alert(JSON.stringify(response.data))
+  })
   };
   const bro = async (brob, bro, bro2) => {
-    console.log(brob);
-    let arg = '"'+ brob +'", "'+bro+'", "null", "'+ bro2[0] +'", "'+ bro2[1] +'" ,0,0,"2022-05-04",0,0,0,"2022-05-04")';
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const date = year + '-' + month + '-' + day;
+    let arg = '"'+ brob +'", "'+bro+'", "null", "'+ bro2[0] +'", "'+ bro2[1] +'" ,0,0,"'+date+'",0,0,0,"'+date+'")';
     const result = await Axios.get(`http://localhost:3002/api/addAccess`, {
       params: { args: arg },
     })
-      .then((response) =>  response.data)
+    .then((response) => {
+      alert(JSON.stringify(response.data))
+  })
   };
-
-  console.log(user);
-  console.log(role);
 
 
   let navigate = useNavigate();
@@ -166,7 +169,6 @@ function AddRemoveAccount() {
           selectedAcc = (document.getElementById("curr").value).split(",");
           selectedPerson = document.getElementById("person").value;
           bro(user, selectedPerson, selectedAcc);
-          alert("worked!");
         }}
       >
         Confirm

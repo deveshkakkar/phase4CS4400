@@ -3,12 +3,14 @@ import Axios from "axios";
 import {user, role} from "./Login.jsx"
 //import { useNavigate } from "react-router-dom";
 //let navigate = useNavigate();
+
 import { NavLink } from "react-router-dom";
 
+
 function MakeAccountTransfer() {
-  const [bankID,setbankID] = useState("");
+  const [bankID, setbankID] = useState("");
   const [checkingAccount, setCheckingAccount] = useState("");
-  const [bankID2,setbankID2] = useState("");
+  const [bankID2, setbankID2] = useState("");
   const [savingAccount, setSavingAccount] = useState("");
   const [amount, setAmount] = useState(0);
 
@@ -53,20 +55,20 @@ function MakeAccountTransfer() {
     };
     get();
   }, []);
-  
-    useEffect(() => {
-      const get = async () => {
-        const result = await Axios.get(`http://localhost:3002/api/account`)
-          .then((response) => response.data)
-          .then((data) =>
-            data.map((element) => {
-              return <option>{element.accountID}</option>;
-            })
-          );
-        setSavingAccount(result);
-      };
-      get();
-    }, []);
+
+  useEffect(() => {
+    const get = async () => {
+      const result = await Axios.get(`http://localhost:3002/api/account`)
+        .then((response) => response.data)
+        .then((data) =>
+          data.map((element) => {
+            return <option>{element.accountID}</option>;
+          })
+        );
+      setSavingAccount(result);
+    };
+    get();
+  }, []);
 
   return (
     <div class="p-3">

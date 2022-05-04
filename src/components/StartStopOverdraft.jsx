@@ -6,11 +6,10 @@ import { NavLink } from "react-router-dom";
 import {user, role} from "./Login.jsx"
 
 
-
 function StartStopOverdraft() {
-  const [bankID,setbankID] = useState("");
+  const [bankID, setbankID] = useState("");
   const [checkingAccount, setCheckingAccount] = useState("");
-  const [bankID2,setbankID2] = useState("");
+  const [bankID2, setbankID2] = useState("");
   const [savingAccount, setSavingAccount] = useState("");
   let checked = -1;
 
@@ -44,7 +43,9 @@ function StartStopOverdraft() {
 
   useEffect(() => {
     const get = async () => {
-      const result = await Axios.get(`http://localhost:3002/api/checkingAccounts`)
+      const result = await Axios.get(
+        `http://localhost:3002/api/checkingAccounts`
+      )
         .then((response) => response.data)
         .then((data) =>
           data.map((element) => {
@@ -55,20 +56,20 @@ function StartStopOverdraft() {
     };
     get();
   }, []);
-  
-    useEffect(() => {
-      const get = async () => {
-        const result = await Axios.get(`http://localhost:3002/api/savingAccounts`)
-          .then((response) => response.data)
-          .then((data) =>
-            data.map((element) => {
-              return <option>{element.accountID}</option>;
-            })
-          );
-        setSavingAccount(result);
-      };
-      get();
-    }, []);
+
+  useEffect(() => {
+    const get = async () => {
+      const result = await Axios.get(`http://localhost:3002/api/savingAccounts`)
+        .then((response) => response.data)
+        .then((data) =>
+          data.map((element) => {
+            return <option>{element.accountID}</option>;
+          })
+        );
+      setSavingAccount(result);
+    };
+    get();
+  }, []);
 
   return (
     <div class="p-3">

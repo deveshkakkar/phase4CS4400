@@ -34,12 +34,8 @@ function StopEmployeeRole() {
         onClick={() => {
           selectedValue = document.getElementById("employees").value;
           Axios.post('http://localhost:3002/api/stop_employee_role', {perID: selectedValue}).then((response) => {
-            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-              alert("it didn't work!")
-            } else {
-              alert("it did work!")
-            }
-          })
+            alert(JSON.stringify(response.data))
+        })
         }}
       >
         {" "}

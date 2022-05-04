@@ -83,12 +83,8 @@ function CreateCustomerRole() {
         const zip = document.getElementById("zip").value
         const dtjoin = document.getElementById("datejoined").value
         Axios.post('http://localhost:3002/api/start_customer_role',  {perID: perID, SSN: SSN, fname: fname, lname: lname, bday:bday, street: street, city: city, state: state, zip: zip, dtjoin: dtjoin, password: password}).then((response) => {
-          if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-            alert("it didn't work!")
-          } else {
-            alert("it did work!")
-          }
-        })
+          alert(JSON.stringify(response.data))
+      })
     }}
     />
     <input

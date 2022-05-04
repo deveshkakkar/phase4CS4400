@@ -11,12 +11,8 @@ function CreateCorp() {
   
   const submitPost = () => {
     Axios.post('http://localhost:3002/api/create', {corpId: corpID, name: name, shortName:shortName, resAssets:resAssets}).then((response) => {
-      if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-        alert("it didn't work!")
-      } else {
-        alert("it did work!")
-      }
-    })
+      alert(JSON.stringify(response.data))
+
     }
   return (
     <div class="p-3">
