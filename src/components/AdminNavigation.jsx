@@ -17,7 +17,7 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/MVP" style = {{float: "left"}}>    
+            <NavLink className="nav-link" to="/createCorp" style = {{float: "left"}}>    
                 <button type="button" class="button"> 
                     <span class="button__text">Create Corporation</span>
                 </button>
@@ -57,7 +57,7 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/MVP">
+            <NavLink className="nav-link" to="/payEmployee">
                 <button type="button" class="button"> 
                     <span class="button__text">Pay Employees</span>
                 </button>

@@ -3,7 +3,7 @@ import Axios from "axios";
 
 
 
-function About() {
+function CreateCorp() {
   const [corpID,setcorpID] = useState("");
   const [name,setName] = useState("");
   const [shortName,setShortName] = useState("");
@@ -50,4 +50,4 @@ function About() {
   );
 }
 
-export default About;
+export default CreateCorp;

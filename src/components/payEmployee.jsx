@@ -2,7 +2,7 @@ import React from "react";
 import Axios from "axios";
 
 
-function Home() {
+function PayEmployee() {
 
   const LikePost = () => {
     Axios.get(`http://localhost:3002/api/get`).then((response)=>{
@@ -15,4 +15,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default PayEmployee;

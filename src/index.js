@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Navigation,
   Footer,
-  Home,
-  About,
+  PayEmployee,
+  CreateCorp,
   Contact,
   Blog,
   Posts,
@@ -49,8 +49,8 @@ ReactDOM.render(
       <Route path="/manageUsers" element={<ManageUsers/>} />
       <Route path="/viewStats" element={<ViewStats/>} />
       <Route path="/managerCustomer" element={<ManagerCustomer/>} />
-
-      <Route path="/about" element={<About />} />
+      <Route path="/payEmployee" element={<PayEmployee/>} />
+      <Route path="/createCorp" element={<CreateCorp />} />
       <Route path="/stopEmployeeRole" element={<StopEmployee />} />      
       <Route path="/createEmployeeRole" element={<CreateEmployee />} />    
       <Route path="/createCustomerRole" element={<CreateCustomer />} />
