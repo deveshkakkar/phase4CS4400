@@ -71,7 +71,7 @@ function CreateFee() {
       >
         Submit
       </button>
-      <NavLink className="nav-link" to="/adminNavigation" style = {{float: "left"}}>
+      <NavLink className="nav-link" to="/" style = {{float: "left"}}>
                 <button type="button" class="button"> 
                     <span class="button__text">Back</span>
                 </button>
