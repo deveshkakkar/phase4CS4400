@@ -136,7 +136,7 @@ function AddRemoveAccount() {
           selectedAcc = (document.getElementById("employees").value).split(",");
           selectedPerson = document.getElementById("banks").value;
           bruh(user, selectedPerson, selectedAcc);
-          alert("worked!");
+          //alert("worked!");
         }}
       >
         Confirm

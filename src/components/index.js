@@ -24,9 +24,6 @@ export { default as ViewStats } from "./ViewStats";
 export { default as ManagerCustomer } from "./ManagerCustomer";
 
 export { default as Contact } from "./Contact";
-export { default as Blog } from "./blog/Blog";
-export { default as Posts } from "./blog/Posts";
-export { default as Post } from "./blog/Post";
 export {default as DisplayBankStat} from "./displayBankStat";
 export { default as DisplayAccStat} from "./displayAccStat";
 export {default as DisplayEmpStat} from "./displayEmpStat";

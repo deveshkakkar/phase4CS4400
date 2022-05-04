@@ -8,9 +8,6 @@ import {
   PayEmployee,
   CreateCorp,
   Contact,
-  Blog,
-  Posts,
-  Post,
   Login,
   AdminNavigation,
   CustomerNavigation,
@@ -74,10 +71,6 @@ ReactDOM.render(
       <Route path="/StartStopOverdraft" element={<StartStopOverdraft />} />
       <Route path="/MakeDepositAndWithdrawal" element={<MakeDepositAndWithdrawal />} />
       <Route path="/MakeAccountTransfer" element={<MakeAccountTransfer />} />
-      <Route path="/blog" element={<Blog />}>
-        <Route path="" element={<Posts />} />
-        <Route path=":postSlug" element={<Post />} />
-      </Route>
     </Routes>
   </Router>,
 

@@ -434,7 +434,6 @@ app.post("/api/stop_customer_role", (req, res) => {
           console.log(result);
           res.send(result);
         }
-          res.send(result)
       });   });
 
       app.get("/api/account", (req,res)=>{
