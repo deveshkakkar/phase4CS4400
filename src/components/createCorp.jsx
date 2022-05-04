@@ -13,7 +13,7 @@ function CreateCorp() {
     Axios.post('http://localhost:3002/api/create', {corpId: corpID, name: name, shortName:shortName, resAssets:resAssets}).then((response) => {
       alert(JSON.stringify(response.data))
 
-    }
+    })
   return (
     <div class="p-3">
       <form>
@@ -70,5 +70,5 @@ function CreateCorp() {
     </div>
   );
 }
-
+}
 export default CreateCorp;
