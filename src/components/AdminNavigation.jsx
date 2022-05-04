@@ -81,12 +81,19 @@ function AdminNavigation() {
             </div>
 
             <div>
-            <NavLink className="nav-link" to="/CreateBank">
+            <NavLink className="nav-link" to="/CreateBank" style = {{float: "left"}}>
                 <button type="button" class="button"> 
                     <span class="button__text">Create Bank</span>
                 </button>
                 </NavLink>
+
+                <NavLink className="nav-link" to="/CreateAccount">
+                <button type="button" class="button"> 
+                    <span class="button__text">Create Account</span>
+                </button>
+                </NavLink>
             </div>
+
         </div>
     );
 }
