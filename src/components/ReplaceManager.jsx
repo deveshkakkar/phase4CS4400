@@ -60,12 +60,8 @@ function ReplaceManager() {
           Axios.post(`http://localhost:3002/api/replace_manager`,{perID: perID,
           bankID: bankID,
           salary: salary}).then((response) => {
-            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-              alert("it didn't work!")
-            } else {
-              alert("it did work!")
-            }
-          })
+            alert(JSON.stringify(response.data))
+        })
         }}
       >
         Replace Manager

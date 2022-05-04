@@ -87,14 +87,18 @@ function AddRemoveAccount() {
     const result = await Axios.get(`http://localhost:3002/api/removeAccess`, {
       params: { args: arg },
     })
-      .then((response) =>  response.data)
+    .then((response) => {
+      alert(JSON.stringify(response.data))
+  })
   };
   const bro = async (brob, bro, bro2) => {
     let arg = '"'+ brob +'", "'+bro+'", "null", "'+ bro2[0] +'", "'+ bro2[1] +'" ,0,0,"2022-05-04",0,0,0,"2022-05-04")';
     const result = await Axios.get(`http://localhost:3002/api/addAccess`, {
       params: { args: arg },
     })
-      .then((response) =>  response.data)
+    .then((response) => {
+      alert(JSON.stringify(response.data))
+  })
   };
 
 
@@ -160,7 +164,6 @@ function AddRemoveAccount() {
           selectedAcc = (document.getElementById("curr").value).split(",");
           selectedPerson = document.getElementById("person").value;
           bro(user, selectedPerson, selectedAcc);
-          alert("worked!");
         }}
       >
         Confirm

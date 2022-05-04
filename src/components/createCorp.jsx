@@ -10,7 +10,9 @@ function CreateCorp() {
   const [resAssets,setResAssets] = useState("");
   
   const submitPost = () => {
-    Axios.post('http://localhost:3002/api/create', {corpId: corpID, name: name, shortName:shortName, resAssets:resAssets})
+    Axios.post('http://localhost:3002/api/create', {corpId: corpID, name: name, shortName:shortName, resAssets:resAssets}).then((response) => {
+      alert(JSON.stringify(response.data))
+  })
     }
   return (
     <div class="p-3">

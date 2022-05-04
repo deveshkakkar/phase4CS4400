@@ -224,10 +224,12 @@ app.get("/api/workfor", (req, res) => {
     console.log(query)
     db.query(query, (err, result) => {
       if (err) {
+        res.send(err)
         console.log(err);
+      } else {
+        console.log(result);
+        res.send(result);
       }
-      console.log(result);
-      res.send(result);
     });
   });
 
@@ -241,10 +243,12 @@ app.get("/api/workfor", (req, res) => {
     console.log(query)
     db.query(query, (err, result) => {
       if (err) {
+        res.send(err)
         console.log(err);
+      } else {
+        console.log(result);
+        res.send(result);
       }
-      console.log(result);
-      res.send(result);
     });
   });
 
@@ -292,10 +296,12 @@ app.post("/api/create", (req, res) => {
     [corpID, name, shortName, resAssets],
     (err, result) => {
       if (err) {
+        res.send(err)
         console.log(err);
+      } else {
+        console.log(result);
+        res.send(result);
       }
-      console.log(result);
-      res.send(result)
     }
   );
 });
@@ -304,10 +310,12 @@ app.post("/api/stop_employee_role", (req, res) => {
   const perID = req.body.perID;
   db.query("call stop_employee_role(?)", [perID], (err, result) => {
     if (err) {
+      res.send(err)
       console.log(err);
+    } else {
+      console.log(result);
+      res.send(result);
     }
-    console.log(result);
-    res.send(result);
   });
 });
 
@@ -315,10 +323,12 @@ app.post("/api/stop_customer_role", (req, res) => {
     const perID = req.body.perID;
     db.query("call stop_customer_role(?)", [perID], (err, result) => {
       if (err) {
+        res.send(err)
         console.log(err);
+      } else {
+        console.log(result);
+        res.send(result);
       }
-      console.log(result);
-      res.send(result);
     });
   });
 
@@ -342,10 +352,12 @@ app.post("/api/stop_customer_role", (req, res) => {
       "call start_employee_role(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [perID, SSN, fname, lname, bday, street, city, state, zip, dtjoin, salary, payments, earned, password],
       (err, result) => {
         if (err) {
+          res.send(err)
           console.log(err);
+        } else {
+          console.log(result);
+          res.send(result);
         }
-        console.log(result);
-        res.send(result);
       }
     );
   });
@@ -368,10 +380,12 @@ app.post("/api/stop_customer_role", (req, res) => {
       "call start_customer_role(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [perID, SSN, fname, lname, bday, street, city, state, zip, dtjoin, password],
       (err, result) => {
         if (err) {
+          res.send(err)
           console.log(err);
+        } else {
+          console.log(result);
+          res.send(result);
         }
-        console.log(result);
-        res.send(result);
       }
     );
   });
@@ -385,10 +399,12 @@ app.post("/api/stop_customer_role", (req, res) => {
       [perID, bankID, salary],
       (err, result) => {
         if (err) {
+          res.send(err)
           console.log(err);
+        } else {
+          console.log(result);
+          res.send(result);
         }
-        console.log(result);
-        res.send(result);
       }
     );
   });
@@ -402,12 +418,13 @@ app.post("/api/stop_customer_role", (req, res) => {
       [perID, bankID, salary],
       (err, result) => {
         if (err) {
+          res.send(err)
           console.log(err);
+        } else {
+          console.log(result);
+          res.send(result);
         }
-        console.log(result);
-        res.send(result);
-      }
-    );
+      });
   });
 
   app.post('/api/createFee', (req, res) => {
@@ -415,10 +432,13 @@ app.post("/api/stop_customer_role", (req, res) => {
       const account = req.body.account;
       const feeType = req.body.feeType;
       db.query("call create_fee(?, ?, ?)",[bank, account, feeType], (err,result)=>{
-          if(err) {
-          console.log(err)
-          } 
+        if (err) {
+          res.send(err)
+          console.log(err);
+        } else {
           console.log(result);
+          res.send(result);
+        }
           res.send(result)
       });   });
 
@@ -455,11 +475,13 @@ app.post("/api/stop_customer_role", (req, res) => {
         const requester = "mmoss7";
         console.log([requester, bank, account, bank2, account2]);
         db.query("call start_overdraft(?, ?, ?, ?, ?)",[requester, bank, account, bank2, account2], (err,result)=>{
-            if(err) {
-            console.log(err)
-            } 
+          if (err) {
+            res.send(err)
+            console.log(err);
+          } else {
             console.log(result);
-            res.send(result)
+            res.send(result);
+          }
         });   });
 
     app.post('/api/stopOverdraft', (req, res) => {
@@ -468,11 +490,13 @@ app.post("/api/stop_customer_role", (req, res) => {
       const requester = "mmoss7";
       console.log([requester, bank, account]);
         db.query("call stop_overdraft(?, ?, ?)",[requester, bank, account], (err,result)=>{
-            if(err) {
-            console.log(err)
-            } 
+          if (err) {
+            res.send(err)
+            console.log(err);
+          } else {
             console.log(result);
-            res.send(result)
+            res.send(result);
+          }
         });   });
 
       app.post('/api/MakeAccountTransfer', (req, res) => {
@@ -488,11 +512,13 @@ app.post("/api/stop_customer_role", (req, res) => {
           const date = year + '-' + month + '-' + day;
           const requester = "mmoss7";
           db.query("call account_transfer(?, ?, ?, ?, ?, ?, ?)",[requester, amount, bank, account, bank2, account2, date], (err,result)=>{
-              if(err) {
-              console.log(err)
-              } 
+            if (err) {
+              res.send(err)
+              console.log(err);
+            } else {
               console.log(result);
-              res.send(result)
+              res.send(result);
+            }
           });   });
 
     app.post('/api/MakeDeposit', (req, res) => {
@@ -507,11 +533,13 @@ app.post("/api/stop_customer_role", (req, res) => {
         const requester = "mmoss7";
         console.log([requester, amount, bank, account, date]);
         db.query("call account_deposit(?, ?, ?, ?, ?)",[requester, amount, bank, account, date], (err,result)=>{
-            if(err) {
-            console.log(err)
-            } 
+          if (err) {
+            res.send(err)
+            console.log(err);
+          } else {
             console.log(result);
-            res.send(result)
+            res.send(result);
+          }
         });   });
 
     app.post('/api/MakeWithdrawal', (req, res) => {
@@ -525,11 +553,13 @@ app.post("/api/stop_customer_role", (req, res) => {
         const date = year + '-' + month + '-' + day;
         const requester = "mmoss7";
         db.query("call account_withdrawal(?, ?, ?, ?, ?)",[requester, amount, bank, account, date], (err,result)=>{
-            if(err) {
-            console.log(err)
-            } 
+          if (err) {
+            res.send(err)
+            console.log(err);
+          } else {
             console.log(result);
-            res.send(result)
+            res.send(result);
+          }
         });   });
 
   app.post('/api/createBank', (req,res)=> {
@@ -547,11 +577,13 @@ app.post("/api/stop_customer_role", (req, res) => {
       console.log("cat");
       console.log(corpID);
       db.query("call create_bank(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",[bankID, name, street, city, state, zip, resAssets, corpID, manager, bank_employee], (err,result)=>{
-          if(err) {
-          console.log(err)
-          } 
+        if (err) {
+          res.send(err)
+          console.log(err);
+        } else {
           console.log(result);
-          res.send(result)
+          res.send(result);
+        }
       });   });
 
 app.listen(PORT, () => {

@@ -139,12 +139,8 @@ function CreateBank() {
           let res = parseInt(document.getElementById("resAssets").value);
           Axios.post('http://localhost:3002/api/createBank', {bankID: bankID, name: name, street: street, city: city, 
             state: state, zip: zip, resAssets: res, corpID: inputCorpID, manager: inputManagerID, employee: inputEmployeeID}).then((response) => {
-              if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
-                alert("it didn't work!")
-              } else {
-                alert("it did work!")
-              }
-            })
+              alert(JSON.stringify(response.data))
+          })
         }}
       >
         Submit
