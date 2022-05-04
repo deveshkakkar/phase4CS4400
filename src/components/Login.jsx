@@ -7,8 +7,6 @@ import ManagerCustomer from "./ManagerCustomer";
 import { set } from "express/lib/application";
 import ManagerNavigation from "./ManagerNavigation";
 import CustomerNavigation from "./CustomerNavigation";
-
-
 function Login() {
     const [userView, setUserView] = useState(false);
     const [userID,setUserID] = useState("");
@@ -36,6 +34,7 @@ function Login() {
             
         })
         }
+        
     if (!userView) {
         return (
             <div class="loginbox">
@@ -63,6 +62,6 @@ function Login() {
     } else {
         return <CustomerNavigation/>;
     }
-    
 }
+
 export default Login; 

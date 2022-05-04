@@ -75,7 +75,13 @@ function HireWorker() {
             perID: perID,
             bankID: bankID,
             salary: salary,
-          }).then((response)=> {console.log(response)});
+          }).then((response) => {
+            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
+              alert("it didn't work!")
+            } else {
+              alert("it did work!")
+            }
+          });
         }}
       >
         Hire Worker

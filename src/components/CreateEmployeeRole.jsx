@@ -101,7 +101,13 @@ function CreateEmployeeRole() {
           const salary = document.getElementById("salary").value
           const payments = document.getElementById("numOfPayments").value
           const earned = document.getElementById("earnings").value
-          Axios.post('http://localhost:3002/api/start_employee_role',  {perID: perID, SSN: SSN, fname: fname, lname: lname, bday:bday, street: street, city: city, state: state, zip: zip, dtjoin: dtjoin, salary:salary, payments:payments, earned: earned, password: password})
+          Axios.post('http://localhost:3002/api/start_employee_role',  {perID: perID, SSN: SSN, fname: fname, lname: lname, bday:bday, street: street, city: city, state: state, zip: zip, dtjoin: dtjoin, salary:salary, payments:payments, earned: earned, password: password}).then((response) => {
+            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
+              alert("it didn't work!")
+            } else {
+              alert("it did work!")
+            }
+          })
       }}
       />
       <input

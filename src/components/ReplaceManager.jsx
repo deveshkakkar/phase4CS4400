@@ -59,7 +59,13 @@ function ReplaceManager() {
           let salary = document.getElementById("salary").value;
           Axios.post(`http://localhost:3002/api/replace_manager`,{perID: perID,
           bankID: bankID,
-          salary: salary})
+          salary: salary}).then((response) => {
+            if (response.data.affectedRows == 0 || response.data.affectedRows == undefined) {
+              alert("it didn't work!")
+            } else {
+              alert("it did work!")
+            }
+          })
         }}
       >
         Replace Manager

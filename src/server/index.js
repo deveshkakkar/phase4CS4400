@@ -224,6 +224,7 @@ app.post("/api/create", (req, res) => {
         console.log(err);
       }
       console.log(result);
+      res.send(result)
     }
   );
 });
@@ -235,6 +236,7 @@ app.post("/api/stop_employee_role", (req, res) => {
       console.log(err);
     }
     console.log(result);
+    res.send(result);
   });
 });
 
@@ -245,6 +247,7 @@ app.post("/api/stop_customer_role", (req, res) => {
         console.log(err);
       }
       console.log(result);
+      res.send(result);
     });
   });
 
@@ -271,6 +274,7 @@ app.post("/api/stop_customer_role", (req, res) => {
           console.log(err);
         }
         console.log(result);
+        res.send(result);
       }
     );
   });
@@ -295,6 +299,7 @@ app.post("/api/stop_customer_role", (req, res) => {
           console.log(err);
         }
         console.log(result);
+        res.send(result);
       }
     );
   });
