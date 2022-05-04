@@ -209,8 +209,50 @@ app.get("/api/workfor", (req, res) => {
     });
   });
 
+
+  app.get("/api/removeAccess", (req, res) => {
+    const query = "call remove_account_access(" + req.query.args;
+    console.log(query)
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(result);
+      res.send(result);
+    });
+  });
+
+  app.get("/api/addAccess", (req, res) => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const date = year + '-' + month + '-' + day;
+    const query = "call add_account_access(" + req.query.args;
+    console.log(query)
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(result);
+      res.send(result);
+    });
+  });
+
   app.get("/api/accountsowned", (req, res) => {
-    const query = "select accountID from access where perID=" + req.query.args;
+    const query = "select bankID, accountID from access where perID=" + req.query.args;
+    console.log(query)
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(result);
+      res.send(result);
+    });
+  });
+
+  app.get("/api/numAccesses", (req, res) => {
+    const query = "select DISTINCT perID from access where (bankID, accountID) in (select bankID, accountID from access where bankID =" + req.query.args;
     console.log(query)
     db.query(query, (err, result) => {
       if (err) {

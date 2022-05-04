@@ -1,8 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import Axios from "axios";
-//import { useNavigate } from "react-router-dom";
-//let navigate = useNavigate();
-
+import { NavLink } from "react-router-dom";
 
 function CreateFee() {
   const [feeType, setFeeType] = useState("");
@@ -77,12 +75,12 @@ function CreateFee() {
       >
         Submit
       </button>
-      <input
-      class="m-1"
-      type="submit"
-      value="Cancel"
-      onClick={() => navigate("/adminNavigation")}
-    />
+      <NavLink className="nav-link" to="/adminNavigation" style = {{float: "left"}}>
+                <button type="button" class="button"> 
+                    <span class="button__text">Back</span>
+                </button>
+                </NavLink>
+     
       </form>
     </div>
   );

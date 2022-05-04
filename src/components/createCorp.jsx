@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Axios from "axios";
-
+import { NavLink } from "react-router-dom";
 
 
 function CreateCorp() {
@@ -44,12 +44,11 @@ function CreateCorp() {
       </label>
       <br></br>
       <input class="m-1" type="submit" value="Create" onClick={submitPost}/>
-      <input
-      class="m-1"
-      type="submit"
-      value="Cancel"
-      onClick={() => navigate("/adminNavigation")}
-    />
+      <NavLink className="nav-link" to="/adminNavigation" style = {{float: "left"}}>
+                <button type="button" class="button"> 
+                    <span class="button__text">Back</span>
+                </button>
+                </NavLink>
       </form>
     </div>
   );
