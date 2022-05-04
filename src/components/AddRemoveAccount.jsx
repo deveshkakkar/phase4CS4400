@@ -92,7 +92,12 @@ function AddRemoveAccount() {
   })
   };
   const bro = async (brob, bro, bro2) => {
-    let arg = '"'+ brob +'", "'+bro+'", "null", "'+ bro2[0] +'", "'+ bro2[1] +'" ,0,0,"2022-05-04",0,0,0,"2022-05-04")';
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const date = year + '-' + month + '-' + day;
+    let arg = '"'+ brob +'", "'+bro+'", "null", "'+ bro2[0] +'", "'+ bro2[1] +'" ,0,0,"'+date+'",0,0,0,"'+date+'")';
     const result = await Axios.get(`http://localhost:3002/api/addAccess`, {
       params: { args: arg },
     })

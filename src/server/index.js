@@ -234,11 +234,6 @@ app.get("/api/workfor", (req, res) => {
   });
 
   app.get("/api/addAccess", (req, res) => {
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = today.getFullYear();
-    const date = year + '-' + month + '-' + day;
     const query = "call add_account_access(" + req.query.args;
     console.log(query)
     db.query(query, (err, result) => {
